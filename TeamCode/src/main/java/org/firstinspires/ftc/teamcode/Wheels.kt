@@ -17,9 +17,9 @@ class Wheels {
     fun init() {
 
         motor1 = hardwareMap.get(DcMotor::class.java, "motor1")
-        motor1 = hardwareMap.get(DcMotor::class.java, "motor2")
-        motor1 = hardwareMap.get(DcMotor::class.java, "motor3")
-        motor1 = hardwareMap.get(DcMotor::class.java, "motor4")
+        motor2 = hardwareMap.get(DcMotor::class.java, "motor2")
+        motor3 = hardwareMap.get(DcMotor::class.java, "motor3")
+        motor4 = hardwareMap.get(DcMotor::class.java, "motor4")
 
     }
 
@@ -46,4 +46,7 @@ class Wheels {
         this.motor3!!.power = 0.0
         this.motor4!!.power = 0.0
     }
+
+
+
 }

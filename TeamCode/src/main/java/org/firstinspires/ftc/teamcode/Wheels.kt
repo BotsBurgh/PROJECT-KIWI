@@ -2,6 +2,7 @@ package org.firstinspires.ftc.teamcode
 
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp
 import com.qualcomm.robotcore.hardware.DcMotor
+import org.firstinspires.ftc.robotcore.external.BlocksOpModeCompanion.gamepad1
 import org.firstinspires.ftc.robotcore.external.BlocksOpModeCompanion.hardwareMap
 
 @TeleOp(name = "Move")
@@ -22,7 +23,11 @@ class Wheels {
 
     }
 
+    fun movement() {
+        val rotationPower = 0.4 * gamepad1.right_stick_x.toDouble()
 
+        val joyX = gamepad1.left_stick_x.toDouble()
+        val joyY = -gamepad1.left_stick_y.toDouble()
 
     fun power() {
 
@@ -30,6 +35,8 @@ class Wheels {
         this.motor2!!.power = 0.5
         this.motor3!!.power = 0.5
         this.motor4!!.power = 0.5
+
+        }
 
     }
     fun stop(){

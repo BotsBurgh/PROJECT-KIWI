@@ -22,6 +22,8 @@ class Wheels {
 
     }
 
+    
+
     fun power() {
 
         this.motor1!!.power = 0.5

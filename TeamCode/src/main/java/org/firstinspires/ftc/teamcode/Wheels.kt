@@ -7,14 +7,14 @@ import com.qualcomm.robotcore.hardware.DcMotor
 @TeleOp(name = "Move")
 
 class Wheels: OpMode() {
-
+    //sets the motors to have no value so they do not explode
     var motor1: DcMotor? = null
     var motor2: DcMotor? = null
     var motor3: DcMotor? = null
     var motor4: DcMotor? = null
 
     override fun init() {
-
+        //initualizes the motors
         motor1 = hardwareMap.get(DcMotor::class.java, "motor1")
         motor2 = hardwareMap.get(DcMotor::class.java, "motor2")
         motor3 = hardwareMap.get(DcMotor::class.java, "motor3")
@@ -23,9 +23,12 @@ class Wheels: OpMode() {
     }
 
     override fun loop() {
+        //this writes on the phone
+        //may need more here but i am not sure how to impliment
         telemetry.addData("Status", "Initialized")
         telemetry.update()
-
+        //this says hey if we move the joystick set it to that power
+        //the toDouble sets it as a number so it works
         var right = (-gamepad1.right_stick_x.toDouble())
         var left = (gamepad1.right_stick_y.toDouble())
 
@@ -35,5 +38,5 @@ class Wheels: OpMode() {
         this.motor4!!.power = right
     }
 }
-
+//this could all be wrong i am really not sure 
 

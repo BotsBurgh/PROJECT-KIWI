@@ -1,20 +1,19 @@
 package org.firstinspires.ftc.teamcode
 
+import com.qualcomm.robotcore.eventloop.opmode.OpMode
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp
 import com.qualcomm.robotcore.hardware.DcMotor
-import org.firstinspires.ftc.robotcore.external.BlocksOpModeCompanion.gamepad1
-import org.firstinspires.ftc.robotcore.external.BlocksOpModeCompanion.hardwareMap
 
 @TeleOp(name = "Move")
 
-class Wheels {
+class Wheels: OpMode() {
 
-    private var motor1: DcMotor? = null
-    private var motor2: DcMotor? = null
-    private var motor3: DcMotor? = null
-    private var motor4: DcMotor? = null
+    var motor1: DcMotor? = null
+    var motor2: DcMotor? = null
+    var motor3: DcMotor? = null
+    var motor4: DcMotor? = null
 
-    fun init() {
+    override fun init() {
 
         motor1 = hardwareMap.get(DcMotor::class.java, "motor1")
         motor2 = hardwareMap.get(DcMotor::class.java, "motor2")
@@ -23,30 +22,18 @@ class Wheels {
 
     }
 
-    fun movement() {
-        val rotationPower = 0.4 * gamepad1.right_stick_x.toDouble()
+    override fun loop() {
+        telemetry.addData("Status", "Initialized")
+        telemetry.update()
 
-        val joyX = gamepad1.left_stick_x.toDouble()
-        val joyY = -gamepad1.left_stick_y.toDouble()
+        var right = (-gamepad1.right_stick_x.toDouble())
+        var left = (gamepad1.right_stick_y.toDouble())
 
-    fun power() {
-
-        this.motor1!!.power = 0.5
-        this.motor2!!.power = 0.5
-        this.motor3!!.power = 0.5
-        this.motor4!!.power = 0.5
-
-        }
-
+        this.motor1!!.power = left
+        this.motor2!!.power = right
+        this.motor3!!.power = left
+        this.motor4!!.power = right
     }
-    fun stop(){
-
-        this.motor1!!.power = 0.0
-        this.motor2!!.power = 0.0
-        this.motor3!!.power = 0.0
-        this.motor4!!.power = 0.0
-    }
-
-
-
 }
+
+

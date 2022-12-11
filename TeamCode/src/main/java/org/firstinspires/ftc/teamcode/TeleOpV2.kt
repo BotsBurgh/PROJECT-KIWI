@@ -9,7 +9,7 @@ import com.qualcomm.robotcore.util.Range
 
 class TeleOpV2 {
     @TeleOp(name = "TeleOpV2", group = "TeleOp")
-    //@Disabled
+    @Disabled
     class TeleOpV2 : OpMode() {
         // Declare OpMode members.
         private val runtime = ElapsedTime()
@@ -77,3 +77,5 @@ class TeleOpV2 {
     }
 
 }
+
+//dumb idea and will prob not be used

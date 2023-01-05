@@ -27,13 +27,14 @@ class Wheels: LinearOpMode() {
 
         while (opModeIsActive()) {
             //might need to just set the motor powers to a number i am not sure
-            var pow = gamepad1.right_stick_x.toDouble()
+            var rot = gamepad1.right_stick_x.toDouble()
             var pew = gamepad1.left_stick_y.toDouble()
+            var pow = gamepad1.left_stick_x.toDouble()
 
-            motor1.power = -pew
-            motor2.power = pew
-            motor3.power = pew
-            motor4.power = -pew
+            motor1.power = -pow - pew + rot
+            motor2.power = pow - pew + rot
+            motor3.power = pow - pew + rot
+            motor4.power = -pow - pew + rot
         }
     }
 }
